@@ -1,6 +1,5 @@
 ---
-- hosts: all
-  connection: local
+- hosts: build_machine
   gather_facts: false
   vars_files:
     - vars/rhel8_image.yml
