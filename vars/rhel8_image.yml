@@ -1,0 +1,13 @@
+---
+rhel8_packages:
+  - "@base"
+  - "@development"
+  - "@infiniband"
+  - kernel
+  - dracut-network
+  - nfs-utils
+  - readonly-root
+  - setserial
+  - zsh
+  - tcsh
+  - csh

@@ -1,0 +1,19 @@
+---
+- hosts: chroots
+  connection: community.general.chroot
+  tasks:
+    - debug:
+        msg: "{{ test_message }}"
+    - name: Ensure Firewalld is disabled
+      ansible.builtin.systemd_service:
+        name: firewalld
+        state: stopped
+        enabled: false
+        masked: true
+    - name: Mount an NFS volume
+      ansible.posix.mount:
+        src: 192.168.1.100:/nfs/ssd/shared_data
+        path: /scratch
+        opts: defaults
+        state: present
+        fstype: nfs

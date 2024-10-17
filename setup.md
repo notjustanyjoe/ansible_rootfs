@@ -1,0 +1,13 @@
+# Set up for chroot 
+- ensure ansible-core is installed
+    - `dnf install ansible-core -y`
+- install ansible additional collections
+    - `ansible-galaxy collection install community.general ansible.posix`
+- create playbook for creating installroot with packages
+    - create_rootfs.yml
+- create playbook for chroot connection and customization
+    - customize_rootfs.yml
+- create inventory for chroot
+    - inventory.yml
+- create vars dir with rhel8_image.yml file for packages and other vars
+- include rhel8_image.yml vars_file in create_rootfs.yml

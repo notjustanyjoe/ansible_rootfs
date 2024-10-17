@@ -1,0 +1,5 @@
+---
+chroots:
+  hosts:
+    /images/v0.1:
+      test_message: "This is coming from chroot: {{ inventory_hostname }}"

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/rhel8_image.yml
+  vars:
+    image_root: /images/v0.1
+  tasks:
+    - name: Ensure installroot dir is present
+      ansible.builtin.file:
+        path: "{{ image_root }}"
+        state: directory
+    - name: Create rootfs
+      ansible.builtin.dnf:
+        name: "{{ rhel8_packages }}"
+        releasever: "8.10"
+        installroot: "{{ image_root }}"
+        state: latest
