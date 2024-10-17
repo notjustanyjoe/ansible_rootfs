@@ -1,9 +1,8 @@
 ---
 - hosts: chroots
-  connection: community.general.chroot
   tasks:
-    - debug:
-        msg: "{{ test_message }}"
+    - ansible.builtin.debug:
+        msg: "{{ chroot_message }}"
     - name: Ensure Firewalld is disabled
       ansible.builtin.systemd_service:
         name: firewalld

@@ -6,4 +6,5 @@ build_machine:
 chroots:
   hosts:
     /images/v0.1:
-      test_message: "This is coming from chroot: {{ inventory_hostname }}"
+      ansible_connection: community.general.chroot
+      chroot_message: "{{ ansible_distribution }} {{ ansible_distribution_version }} chrooted at: {{ inventory_hostname }}"
